@@ -8,14 +8,14 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class UserDAOImpl implements UserDAO {
+public class UserDAOI implements UserDAO {
 
     @PersistenceContext
     private EntityManager entityManager;
 
     @Override
     public List<User> allUsers() {
-        return entityManager.createQuery("from User", User.class).getResultList(); //TODO константу
+        return entityManager.createQuery("FROM User", User.class).getResultList();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class UserDAOImpl implements UserDAO {
 
     @Override
     public void delete(User user) {
-        entityManager.remove(entityManager.contains(user) ? user : entityManager.merge(user));
+        entityManager.remove(entityManager.contains(user));
     }
 
     @Override
