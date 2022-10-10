@@ -2,7 +2,8 @@ package web.service;
 
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import web.dao.UserDAOI;
+import web.dao.UserDAO;
+import web.dao.UserDAOImpl;
 import web.dto.UserDto;
 import web.model.User;
 import web.utils.UserMapper;
@@ -13,10 +14,10 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    private final UserDAOI userDAO;
+    private final UserDAO userDAO;
     private final UserMapper userMapper;
 
-    public UserServiceImpl(UserDAOI userDAO, UserMapper userMapper) {
+    public UserServiceImpl(UserDAO userDAO, UserMapper userMapper) {
         this.userDAO = userDAO;
         this.userMapper = userMapper;
     }
